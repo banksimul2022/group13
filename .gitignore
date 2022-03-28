@@ -1,4 +1,6 @@
 api/node_modules/
 api/.env
-bankautomat/build/
-bankautomat/*.user
+bankautomat/bankautomat/build-bankautomat-Desktop-Debug/
+bankautomat/build-bankautomat-Desktop-Debug/
+bankautomat/bankautomat/build/
+bankautomat/bankautomat/*.user
