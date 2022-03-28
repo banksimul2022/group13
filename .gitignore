@@ -4,3 +4,5 @@ bankautomat/bankautomat/build-bankautomat-Desktop-Debug/
 bankautomat/build-bankautomat-Desktop-Debug/
 bankautomat/bankautomat/build/
 bankautomat/bankautomat/*.user
+
+DLL_rest/*.user
