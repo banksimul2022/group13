@@ -7,6 +7,10 @@ const cors = require('cors');
 
 const korttiRouter = require('./routes/kortti');
 
+
+const tiliRouter = require('./routes/tili');
+
+
 var app = express();
 
 app.use(logger('dev'));
@@ -18,6 +22,8 @@ app.use(helmet());
 app.use(cors());
 
 
+app.use('/tili', tiliRouter);
 app.use('/kortti', korttiRouter);
+
 
 module.exports = app;
