@@ -5,8 +5,7 @@ var logger = require('morgan');
 const helmet = require('helmet');
 const cors = require('cors');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const korttiRouter = require('./routes/kortti');
 
 
 const tiliRouter = require('./routes/tili');
@@ -22,7 +21,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(helmet());
 app.use(cors());
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+
 app.use('/tili', tiliRouter);
+app.use('/kortti', korttiRouter);
+
+
 module.exports = app;
