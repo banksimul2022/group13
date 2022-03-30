@@ -13,7 +13,7 @@ router.get('/:id?',
       }
     });
   } else {
-    tili.get(function(err, dbResult) {
+    tili.getAll(function(err, dbResult) {
       if (err) {
         response.json(err);
       } else {

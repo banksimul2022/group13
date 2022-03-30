@@ -24,5 +24,5 @@ app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/tili', tilirouter);
+app.use('/tili', tiliRouter);
 module.exports = app;
