@@ -5,11 +5,10 @@ var logger = require('morgan');
 const helmet = require('helmet');
 const cors = require('cors');
 
+
+var asiakasRouter = require('./routes/asiakas');
 const korttiRouter = require('./routes/kortti');
-
-
 const tiliRouter = require('./routes/tili');
-
 
 var app = express();
 
@@ -22,8 +21,8 @@ app.use(helmet());
 app.use(cors());
 
 
+app.use('/asiakas', asiakasRouter);
 app.use('/tili', tiliRouter);
 app.use('/kortti', korttiRouter);
-
 
 module.exports = app;
