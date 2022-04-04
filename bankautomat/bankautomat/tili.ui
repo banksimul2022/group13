@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>tili</class>
+ <widget class="QWidget" name="tili">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>804</width>
+    <height>606</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <layout class="QVBoxLayout" name="verticalLayout_7">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <widget class="QLabel" name="tili1Label">
+         <property name="text">
+          <string>Tili 1</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <widget class="QLabel" name="saldo1Label">
+             <property name="text">
+              <string>Saldo:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="raha1Label">
+             <property name="text">
+              <string>0.0€</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <widget class="QListWidget" name="tili1ListWidget"/>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout">
+             <item>
+              <widget class="QLineEdit" name="tili1LineEdit"/>
+             </item>
+             <item>
+              <widget class="QPushButton" name="nosta1PushButton">
+               <property name="text">
+                <string>Nosta</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="laita1PushButton">
+               <property name="text">
+                <string>Laita</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="siirra1PushButton">
+               <property name="text">
+                <string>Siirrä</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="QLabel" name="tili2Label">
+         <property name="text">
+          <string>Tili 2</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <widget class="QLabel" name="saldo2Label">
+             <property name="text">
+              <string>Saldo:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="raha2Label">
+             <property name="text">
+              <string>0.0€</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <widget class="QListWidget" name="tili2listWidget"/>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_4">
+             <item>
+              <widget class="QLineEdit" name="tili2lineEdit"/>
+             </item>
+             <item>
+              <widget class="QPushButton" name="nosta2PushButton">
+               <property name="text">
+                <string>Nosta</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="laita2PushButton">
+               <property name="text">
+                <string>Laita</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="siirra2PushButton">
+               <property name="text">
+                <string>Siirrä</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item row="2" column="0">
+    <widget class="QPushButton" name="logoutPushButton">
+     <property name="text">
+      <string>LOGOUT</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
