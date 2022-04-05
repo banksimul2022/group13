@@ -3,11 +3,12 @@
 tilakone::tilakone(QApplication* ohjel){
     ohjelma = ohjel;
     ohjelma->setQuitOnLastWindowClosed(false);
-    errorMessage = "no error yay";
+    errorMessage = "Just käynnistetty eli ei virheitä :D.";
 }
 tilakone::~tilakone(){
 }
 
+//tiloja
 void tilakone::exitti(QString msg, bool kill){
     qDebug() << kill << ' ' << state << '\t' << msg;
     stop = kill;
@@ -23,13 +24,15 @@ void tilakone::sfKortti(){
     s.doScan();
 }
 void tilakone::sfPin(){
-    pin p(nullptr, &errorMessage, &state, ohjelma);
+    pin p(nullptr, &errorMessage, &state, ohjelma, pinNums);
     p.doPin();
 }
 void tilakone::sfTili(){
     tili t(nullptr, &errorMessage, &state, ohjelma);
     t.doTili();
 }
+
+//se kone
 void tilakone::run(){
     while(!stop){
         qDebug() << state;

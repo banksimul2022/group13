@@ -26,7 +26,7 @@ void scan::doScan(){
     errorLabelFiller(*lerri);
     QThread::sleep(2);
     *lstate = pinS;
-    errorLabelFiller("ei vieläkään virheitä");
+    errorLabelFiller("Ei virheitä :–D");
     QThread::sleep(2);
     this->close();
 }

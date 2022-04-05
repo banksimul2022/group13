@@ -23,6 +23,7 @@ protected:
     virtual void run();
 private:
     void exitti(QString, bool);
+    //nää sfFunktion on varmaan turhia...
     void sfKortti();
     void sfPin();
     void sfTili();
@@ -30,6 +31,7 @@ private:
     QApplication* ohjelma;
     QString errorMessage;
     bool stop = false;
+    char pinNums[4];
 };
 
 #endif // TILAKONE_H
