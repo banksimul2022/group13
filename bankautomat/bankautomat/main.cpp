@@ -1,11 +1,10 @@
-#include "mainwindow.h"
-
+//#include "mainwindow.h"
 #include <QApplication>
+#include "tilakone.h"
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]){
     QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+    tilakone tk(&a);
+    tk.start();
     return a.exec();
 }

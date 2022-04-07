@@ -10,13 +10,22 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    pin.cpp \
+    scan.cpp \
+    tilakone.cpp \
+    tili.cpp
 
 HEADERS += \
-    mainwindow.h
+    enumi.h \
+    pin.h \
+    scan.h \
+    tilakone.h \
+    tili.h
 
 FORMS += \
-    mainwindow.ui
+    pin.ui \
+    scan.ui \
+    tili.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
