@@ -20,7 +20,7 @@ void tilakone::exitti(QString msg, bool kill){
     state = korttiS;
 }
 void tilakone::sfKortti(){
-    scan s(nullptr, &errorMessage, &state, ohjelma);
+    scan s(nullptr, &errorMessage, &state, ohjelma, &cardId);
     s.doScan();
 }
 void tilakone::sfPin(){

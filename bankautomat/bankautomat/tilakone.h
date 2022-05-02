@@ -30,6 +30,7 @@ private:
     int state=korttiS;
     QApplication* ohjelma;
     QString errorMessage;
+    QString cardId;
     bool stop = false;
     char pinNums[4];
 };
