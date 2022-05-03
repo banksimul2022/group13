@@ -40,3 +40,17 @@ DEPENDPATH += $$PWD/../../DLL_RFID/build-DLL_RFID-Desktop-Debug
 unix:!macx|win32: LIBS += -L$$PWD/../../../poista/group13/build-DLL_rest-Desktop-Debug/ -lDLL_rest
 INCLUDEPATH += $$PWD/../../../poista/group13/DLL_rest
 DEPENDPATH += $$PWD/../../../poista/group13/build-DLL_rest-Desktop-Debug
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../build-DLL_rest-Desktop-Debug/release/ -lDLL_rest
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../build-DLL_rest-Desktop-Debug/debug/ -lDLL_rest
+else:unix:!macx: LIBS += -L$$PWD/../../build-DLL_rest-Desktop-Debug/ -lDLL_rest
+
+INCLUDEPATH += $$PWD/../../DLL_rest
+DEPENDPATH += $$PWD/../../DLL_rest
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../DLL_RFID/build-DLL_RFID-Desktop-Debug/release/ -lDLL_RFID
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../DLL_RFID/build-DLL_RFID-Desktop-Debug/debug/ -lDLL_RFID
+else:unix:!macx: LIBS += -L$$PWD/../../DLL_RFID/build-DLL_RFID-Desktop-Debug/ -lDLL_RFID
+
+INCLUDEPATH += $$PWD/../../DLL_RFID/DLL_RFID
+DEPENDPATH += $$PWD/../../DLL_RFID/DLL_RFID

@@ -38,15 +38,15 @@ void scan::errorLabelFiller(QString dText){
 void scan::doScan(){
     this->show();
     errorLabelFiller(*lerri);
-    QThread::sleep(2);
-    *lerri="Ei virheitä :-D";
+    //QThread::sleep(2);
+    //*lerri="Ei virheitä :-D";
     *lstate = 99;
-    /*while(*lstate == 99){
+    while(*lstate == 99){
         errorLabelFiller(*lerri);
         QThread::msleep(14);
-    }*/
-    QThread::sleep(1);
+    }
+    /*QThread::sleep(1);
     *lstate=pinS;
-    *lcardId = "5";
+    *lcardId = "5";*/
     this->close();
 }
