@@ -1,5 +1,5 @@
-#ifndef ENGINE_H
-#define ENGINE_H
+#ifndef ENGINE_RFD_H
+#define ENGINE_RFD_H
 
 #include <QSerialPort>
 #include <QSerialPortInfo>
@@ -10,20 +10,19 @@
 using namespace std;
 
 
-class Engine : public QObject
+class Engine_rfd : public QObject
 {
     Q_OBJECT
 public:
-    Engine(QObject * parent = nullptr);
-    ~Engine();
+    Engine_rfd(QObject * parent = nullptr);
+    ~Engine_rfd();
 signals:
     void toInterface(QString);
 public slots:
     void getCardReader();
 private:
-     QString cardID;
+    QString cardID;
     QSerialPort *port;
-
 };
 
-#endif // ENGINE_H
+#endif // ENGINE_RFD_H

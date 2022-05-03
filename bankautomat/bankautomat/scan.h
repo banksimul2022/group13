@@ -5,7 +5,7 @@
 #include <QThread>
 #include <QDebug>
 #include "enumi.h"
-#include "interface.h"
+#include "interface_rfd.h"
 
 namespace Ui {
 class scan;
@@ -30,7 +30,7 @@ private:
     int* lstate;
     QApplication* lohjelma;
     QString* lcardId;
-    Interface* pInterface;
+    Interface_rfd* pInterface;
 };
 
 #endif // SCAN_H

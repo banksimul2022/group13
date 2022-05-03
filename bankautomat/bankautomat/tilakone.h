@@ -9,8 +9,8 @@
 #include "scan.h"
 #include "pin.h"
 #include "tili.h"
-//#include "dll_rest.h"
-//#include "dll_rfid.h"
+
+
 
 //enum states{kortti, pin, tili};
 
@@ -33,6 +33,8 @@ private:
     QString cardId;
     bool stop = false;
     char pinNums[4];
+    //networking
+   //interface_rst* pengine;
 };
 
 #endif // TILAKONE_H

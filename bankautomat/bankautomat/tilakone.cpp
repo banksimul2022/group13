@@ -24,16 +24,17 @@ void tilakone::sfKortti(){
     s.doScan();
 }
 void tilakone::sfPin(){
-    pin p(nullptr, &errorMessage, &state, ohjelma, pinNums);
+    pin p(nullptr, &errorMessage, &state, ohjelma, pinNums, cardId.toInt());
     p.doPin();
 }
 void tilakone::sfTili(){
-    tili t(nullptr, &errorMessage, &state, ohjelma);
+    tili t(nullptr, &errorMessage, &state, ohjelma, cardId.toInt());
     t.doTili();
 }
 
 //se kone
 void tilakone::run(){
+    QThread::msleep(50);
     while(!stop){
         qDebug() << state;
         switch(state){

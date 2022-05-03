@@ -1,4 +1,4 @@
-QT       += core gui serialport
+QT       += core gui serialport network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -27,14 +27,6 @@ FORMS += \
     scan.ui \
     tili.ui
 
-#DEPENDPATH += \
-#    ../../DLL_RFID/DLL_RFID/
-INCLUDEPATH += \
-    ../../DLL_RFID/DLL_RFID/
-
-#LIBS += \
-#    ../../DLL_RFID/build-DLL_RFID-Desktop-Debug/libDLL_RFID.so
-
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -42,6 +34,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 unix:!macx|win32: LIBS += -L$$PWD/../../DLL_RFID/build-DLL_RFID-Desktop-Debug/ -lDLL_RFID
-
-INCLUDEPATH += $$PWD/../../DLL_RFID/build-DLL_RFID-Desktop-Debug
+INCLUDEPATH += $$PWD/../../DLL_RFID/DLL_RFID
 DEPENDPATH += $$PWD/../../DLL_RFID/build-DLL_RFID-Desktop-Debug
+
+unix:!macx|win32: LIBS += -L$$PWD/../../../poista/group13/build-DLL_rest-Desktop-Debug/ -lDLL_rest
+INCLUDEPATH += $$PWD/../../../poista/group13/DLL_rest
+DEPENDPATH += $$PWD/../../../poista/group13/build-DLL_rest-Desktop-Debug

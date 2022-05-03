@@ -10,7 +10,7 @@ scan::scan(QWidget *parent, QString* error, int* state, QApplication* ohjelma, Q
     lstate = state;
     lohjelma = ohjelma;
     lcardId = cardId;
-    pInterface = new Interface;
+    pInterface = new Interface_rfd;
     connect(pInterface, SIGNAL(sendNumberToExe(QString)), this, SLOT(recvNumberFunction(QString)));
 }
 
@@ -41,9 +41,12 @@ void scan::doScan(){
     QThread::sleep(2);
     *lerri="Ei virheitä :-D";
     *lstate = 99;
-    while(*lstate == 99){
+    /*while(*lstate == 99){
         errorLabelFiller(*lerri);
         QThread::msleep(14);
-    }
+    }*/
+    QThread::sleep(1);
+    *lstate=pinS;
+    *lcardId = "5";
     this->close();
 }

@@ -1,27 +1,22 @@
 #ifndef Interface_H
 #define Interface_H
 
-#include "engine.h"
+#include "engine_rfd.h"
 #include <QDebug>
 #include <QObject>
 #include "DLL_RFID_global.h"
 
-
-
-
-class DLL_RFID_EXPORT Interface : public QObject
+class DLL_RFID_EXPORT Interface_rfd : public QObject
 {
     Q_OBJECT
 public:
-    Interface(QObject *parent = nullptr);
-    ~Interface();
+    Interface_rfd(QObject *parent = nullptr);
+    ~Interface_rfd();
 signals:
     void sendNumberToExe(QString);
 public slots:
     void recvNumberFromEngine(QString);
 private:
-    Engine *pEngine;
-
-
+    Engine_rfd *pEngine;
 };
 #endif // Interface_H

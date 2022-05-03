@@ -12,13 +12,13 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    engine.cpp \
-    interface.cpp
+    engine_rfd.cpp \
+    interface_rfd.cpp
 
 HEADERS += \
     DLL_RFID_global.h \
-    engine.h \
-    interface.h
+    engine_rfd.h \
+    interface_rfd.h
 
 # Default rules for deployment.
 unix {
