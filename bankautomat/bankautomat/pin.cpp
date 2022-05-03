@@ -1,7 +1,7 @@
 #include "pin.h"
 #include "ui_pin.h"
 
-pin::pin(QWidget *parent, QString* error, int* state, QApplication* ohjelma, char* pn) :
+pin::pin(QWidget *parent, QString* error, int* state, QApplication* ohjelma, char* pn, int krtid) :
     QWidget(parent),
     ui(new Ui::pin)
 {
@@ -10,11 +10,15 @@ pin::pin(QWidget *parent, QString* error, int* state, QApplication* ohjelma, cha
     lstate = state;
     lohjelma = ohjelma;
     lpinNums = pn;
+    pn[0]=0; pn[1]=0; pn[2]=0; pn[3]=0;
+    lkrtid = krtid;
+    nwa = new interface_rst(this);
 }
 
 pin::~pin()
 {
     delete ui;
+    delete nwa;
 }
 
 void pin::doPin(){
@@ -30,8 +34,9 @@ void pin::doPin(){
 
 //controll buttons
 void pin::on_exitButton_clicked(){
-    *lerri = "besic exit from pin ui";
+    *lerri = "basic exit from pin ui";
     *lstate = noticeE;
+    nwb=false;
 }
 void pin::on_backButton_clicked(){
     pinNumRem();
@@ -54,8 +59,42 @@ void pin::on_sevenButton_clicked(){ pinNumAdd(48+7);}
 void pin::on_eightButton_clicked(){ pinNumAdd(48+8);}
 void pin::on_nineButton_clicked(){  pinNumAdd(48+9);}
 
+void pin::gotKortti(){
+    nwb=false;
+    std::cout << "gks" << std::endl;
+}
+
 //pin helper functions
-bool pin::testPin(){return true;}
+bool pin::testPin(){
+    bool ret = false;
+    //QString krt = "/kortti/";
+    //krt.append(*lkrtid);
+    QString krt =QString ("/kortti/%1").arg(lkrtid);
+    nwa->setUrlEnd(krt);
+    nwa->doGet();
+    connect(nwa, SIGNAL(gotData), this, SLOT(gotKortti));
+    nwb = true;
+    while(nwb){//wait for network to reply
+        QThread::msleep(15);
+        lohjelma->processEvents();
+    }
+    disconnect(nwa, SIGNAL(gotData), this, SLOT(gotKortti));
+    //process json
+    int rkrtid = 0;
+    QJsonArray json_array = nwa->getJson().array();
+    foreach (const QJsonValue &value, json_array) {
+        QJsonObject json_obj = value.toObject();
+        //rkrtid=QString::number(json_obj["idkortti"].toInt()).toInt();
+        rkrtid=QString::number(json_obj["pin"].toInt()).toInt();
+    }
+    std::cout << rkrtid << ":" << QString::fromUtf8(lpinNums, 4).toInt() << std::endl;
+    if(QString::fromUtf8(lpinNums, 4).toInt() == rkrtid){
+        ret = true;
+    }
+    std::cout << ret << nwa->getJson().toJson().toStdString() << std::endl;
+    return ret;
+}
+
 void pin::pinNumAdd(int num){
     if(pinOffset < 4){
         lpinNums[pinOffset] = num;
