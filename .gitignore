@@ -5,5 +5,7 @@ bankautomat/build-bankautomat-Desktop-Debug/
 bankautomat/bankautomat/build/
 bankautomat/bankautomat/*.user
 DLL_RFID/build-DLL_RFID-Desktop_Qt_5_15_2_MinGW_32_bit-Debug/
+build-DLL_rest-Desktop_Qt_5_15_2_MinGW_32_bit-Debug
 DLL_RFID/DLL_RFID/*.user
+build-DLL_rest-Desktop-Debug
 DLL_rest/*.user
