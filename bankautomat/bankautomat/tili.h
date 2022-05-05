@@ -36,6 +36,8 @@ private:
     void initializeTiliData();
     void updateTiliData();
     bool nwb = false;
+    void newTapahtuma(QString, int);
+    void updateTapahtuma();
 };
 
 #endif // TILI_H

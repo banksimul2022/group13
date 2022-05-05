@@ -9,6 +9,7 @@ tili::tili(QWidget *parent, QString* error, int* state, QApplication* ohjelma, i
     lstate = state;
     lohjelma = ohjelma;
     kortti = cardid;
+    ui->plainTextEdit->setReadOnly(true);
 }
 
 tili::~tili()
@@ -57,6 +58,7 @@ void tili::on_nosta1PushButton_clicked(){
         nwa.setUrlEnd(QString ("/tili/%1").arg(tiliId));
         nwa.doPut();
         updateTiliData();
+        newTapahtuma("Nosto", num);
     }
     //get new account state
     updateTiliData();
@@ -76,6 +78,7 @@ void tili::on_laita1PushButton_clicked(){
         nwa.setUrlEnd(QString ("/tili/%1").arg(tiliId));
         nwa.doPut();
         updateTiliData();
+        newTapahtuma("Laitto", num);
     }
     //get new account state
     updateTiliData();
@@ -129,5 +132,54 @@ void tili::updateTiliData(){
     }
     ui->raha1Label->setText(QString::number(saldo));
     lohjelma->processEvents();
+    updateTapahtuma();
+    lohjelma->processEvents();
+}
+
+void tili::newTapahtuma(QString OP, int summa){
+    ui->tili1LineEdit->setText("");
+    //do the push
+    //if(summa != 0){
+        //set up the request
+        interface_rst nwa;
+        //nwa.pEngine->requestData.insert("idtilitapahtumat",  "NULL");
+        //nwa.pEngine->requestData.insert("paivklo", QDateTime::currentDateTime().toString("YYYY-MM-DD HH:MM:SS"));
+        nwa.pEngine->requestData.insert("paivklo", QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"));
+        nwa.pEngine->requestData.insert("tapahtuma", OP);
+        nwa.pEngine->requestData.insert("summa", QString::number(summa));
+        nwa.pEngine->requestData.insert("tili", tiliId);
+        nwa.setUrlEnd("/tilitapahtumat/");
+        nwa.doPost();
+        updateTiliData();
+        std::cout << QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss").toStdString() << OP.toStdString() << summa << tiliId << std::endl;
+   // }
+    //get new account state
+    updateTiliData();
+}
+
+void tili::updateTapahtuma(){
+    interface_rst nwa2;
+    nwa2.setUrlEnd(QString ("/tilitapahtumat/").arg(tiliId));
+    nwa2.doGet();
+    QJsonArray json_array2 = nwa2.getJson().array();
+    ui->plainTextEdit->clear();//clear the
+    ui->plainTextEdit->appendPlainText("id,paiv/klo,tapahtuma,summa,tiliId");
+    foreach (const QJsonValue &value, json_array2) {
+        QJsonObject json_obj = value.toObject();
+        //saldo=QString::number(json_obj["saldo"].toInt()).toInt();
+        QString tmpstr =    json_obj["idtilitapahtumat"].toString()+
+                            ","+
+                            json_obj["paiv/klo"].toString()+
+                            ","+
+                            json_obj["tapahtuma"].toString()+
+                            ","+
+                            json_obj["summa"].toString()+
+                            ","+
+                            json_obj["tili_idtili"].toString();
+        ui->plainTextEdit->appendPlainText(tmpstr);
+    }
+    ui->raha1Label->setText(QString::number(saldo));
+    lohjelma->processEvents();
+    //ui->plainTextEdit->setPlainText();
 }
 

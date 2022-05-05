@@ -45,6 +45,7 @@ void pin::on_okButton_clicked(){
     if(testPin()){
         *lstate = tiliS;
     }
+    nwb=false;
 }
 
 //number buttons

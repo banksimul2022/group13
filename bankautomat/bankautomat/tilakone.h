@@ -7,10 +7,9 @@
 #include <QApplication>
 #include "enumi.h"
 #include "scan.h"
-#include "pin.h"
+//#include "pin.h"
 #include "tili.h"
-
-
+#include "interface.h"
 
 //enum states{kortti, pin, tili};
 
@@ -34,7 +33,8 @@ private:
     bool stop = false;
     char pinNums[4];
     //networking
-   //interface_rst* pengine;
+    //interface_rst* pengine;
+    bool testPin(int);
 };
 
 #endif // TILAKONE_H

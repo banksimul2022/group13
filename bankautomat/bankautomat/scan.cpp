@@ -1,5 +1,6 @@
 #include "scan.h"
 #include "ui_scan.h"
+#include <QSerialPort>
 
 scan::scan(QWidget *parent, QString* error, int* state, QApplication* ohjelma, QString* cardId) :
     QWidget(parent),
@@ -38,15 +39,19 @@ void scan::errorLabelFiller(QString dText){
 void scan::doScan(){
     this->show();
     errorLabelFiller(*lerri);
-    //QThread::sleep(2);
+    foreach(const QSerialPortInfo &serialPortInfo, QSerialPortInfo::availablePorts()){
+        std::cout << serialPortInfo.portName().toStdString() << std::endl;
+    }
+   // std::cout << QSerialPortInfo::availablePorts() << std::endl;
+    QThread::sleep(2);
     //*lerri="Ei virheitä :-D";
     *lstate = 99;
     while(*lstate == 99){
         errorLabelFiller(*lerri);
         QThread::msleep(14);
     }
-    /*QThread::sleep(1);
-    *lstate=pinS;
-    *lcardId = "5";*/
+    //QThread::sleep(1);
+    //*lstate=pinS;
+    //*lcardId = "5";
     this->close();
 }
