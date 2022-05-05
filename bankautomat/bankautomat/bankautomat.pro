@@ -33,14 +33,6 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-#unix:!macx|win32: LIBS += -L$$PWD/../../DLL_RFID/build-DLL_RFID-Desktop-Debug/ -lDLL_RFID
-#INCLUDEPATH += $$PWD/../../DLL_RFID/DLL_RFID
-#DEPENDPATH += $$PWD/../../DLL_RFID/build-DLL_RFID-Desktop-Debug
-
-#unix:!macx|win32: LIBS += -L$$PWD/../../../poista/group13/build-DLL_rest-Desktop-Debug/ -lDLL_rest
-#INCLUDEPATH += $$PWD/../../../poista/group13/DLL_rest
-#DEPENDPATH += $$PWD/../../../poista/group13/build-DLL_rest-Desktop-Debug
-
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../build-DLL_rest-Desktop-Debug/release/ -lDLL_rest
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../build-DLL_rest-Desktop-Debug/debug/ -lDLL_rest
 else:unix:!macx: LIBS += -L$$PWD/../../build-DLL_rest-Desktop-Debug/ -lDLL_rest
@@ -55,9 +47,9 @@ else:unix:!macx: LIBS += -L$$PWD/../../DLL_RFID/build-DLL_RFID-Desktop-Debug/ -l
 INCLUDEPATH += $$PWD/../../DLL_RFID/DLL_RFID
 DEPENDPATH += $$PWD/../../DLL_RFID/DLL_RFID
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../del/group13/build-interface-Desktop-Debug/release/ -linterface
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../del/group13/build-interface-Desktop-Debug/debug/ -linterface
-else:unix:!macx: LIBS += -L$$PWD/../../../del/group13/build-interface-Desktop-Debug/ -linterface
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../build-interface-Desktop-Debug/release/ -linterface
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../build-interface-Desktop-Debug/debug/ -linterface
+else:unix:!macx: LIBS += -L$$PWD/../../build-interface-Desktop-Debug/ -linterface
 
-INCLUDEPATH += $$PWD/../../../del/group13/DLL_pin
-DEPENDPATH += $$PWD/../../../del/group13/DLL_pin
+INCLUDEPATH += $$PWD/../../DLL_pin
+DEPENDPATH += $$PWD/../../DLL_pin
