@@ -16,6 +16,7 @@ SOURCES += \
 
 HEADERS += \
     engine.h \
+    enumi.h \
     interface_global.h \
     interface.h
 

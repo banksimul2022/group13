@@ -8,3 +8,6 @@ DLL_RFID/build-DLL_RFID-Desktop_Qt_5_15_2_MinGW_32_bit-Debug/
 DLL_RFID/DLL_RFID/*.user
 DLL_rest/*.user
 DLL_pin/*.user
+build-interface-Desktop-Debug/
+build-interface_pn-Desktop-Debug/
+DLL_pin/*.user

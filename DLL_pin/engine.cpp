@@ -1,5 +1,6 @@
 #include "engine.h"
 #include "ui_engine.h"
+#include "enumi.h"
 
 engine::engine(QWidget *parent, QString* error, int* state, QApplication* ohjelma, char* pn, int krtid) :
     QDialog(parent),
@@ -32,81 +33,81 @@ void engine::doPin()
 
 void engine::on_Enter_clicked()
 {
-    *lstate = 1;
-
+    *lstate = pinS;
 }
 
 
 void engine::on_pushButton_1_clicked()
 {
-    addToPin(1);
+    addToPin(48+1);
 }
 
 
 void engine::on_pushButton_2_clicked()
 {
-    addToPin(2);
+    addToPin(48+2);
 }
 
 
 void engine::on_pushButton_3_clicked()
 {
-    addToPin(3);
+    addToPin(48+3);
 }
 
 
 void engine::on_pushButton_4_clicked()
 {
-    addToPin(4);
+    addToPin(48+4);
 }
 
 
 void engine::on_pushButton_5_clicked()
 {
-    addToPin(5);
+    addToPin(48+5);
 }
 
 
 void engine::on_pushButton_6_clicked()
 {
-    addToPin(6);
+    addToPin(48+6);
 }
 
 
 void engine::on_pushButton_7_clicked()
 {
-    addToPin(7);
+    addToPin(48+7);
 }
 
 
 void engine::on_pushButton_8_clicked()
 {
-    addToPin(8);
+    addToPin(48+8);
 }
 
 
 void engine::on_pushButton_9_clicked()
 {
-    addToPin(9);
+    addToPin(48+9);
 }
 
 
 void engine::on_pushButton_exit_clicked()
 {
-    *lstate = 3;
+    *lstate = noticeE;
+    *lerror = "normal exit from pinUI";
 }
 
 void engine::addToPin(int num)
 {
-    if (pinno!=4){
+    if (pinno < 4){
         pinn[pinno]=num;
         pinno++;
     }
-    QString tahti;
+    stars = "";
     for(int i=0; i<pinno; i++){
-        tahti.append("*");
+        stars.append("*");
     }
-    ui->label->setText(tahti);
+    ui->label->setText(stars);
 
 }
 

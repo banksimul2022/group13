@@ -15,7 +15,7 @@ class engine : public QDialog
 public:
     explicit engine(QWidget *parent = nullptr, QString* error = nullptr, int* state = nullptr, QApplication* ohjelma = nullptr, char* pn = nullptr, int krtid = 0);
 
-
+    char* pinn;
     ~engine();
     void doPin();
 
@@ -44,8 +44,9 @@ private slots:
 
 private:
     Ui::engine *ui;
-    char* pinn;
-    int pinno;
+//    char* pinn;
+    int pinno=0;
+    QString stars = "";
     void addToPin(int);
 
     QString* lerror;

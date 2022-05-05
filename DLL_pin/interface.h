@@ -2,23 +2,21 @@
 #define INTERFACE_H
 
 #include "engine.h"
-#include "interface_global.h"
 #include <QDebug>
 #include <QObject>
+#include "interface_global.h"
 
-class INTERFACE_EXPORT Interface:public QObject
+class engine;//????miksi?????
+class INTERFACE_EXPORT Interface : public QObject
 {
     Q_OBJECT
 public:
-    Interface(QObject * parent = nullptr);
+    explicit Interface(QObject *parent = nullptr, QString* error = nullptr, int* state = nullptr, QApplication* ohjelma = nullptr, char* pn = nullptr, int krtid = 0);
     ~Interface();
-    void open();
-    engine * pengine;
-signals:
-    void sendtoexe(short);
-
+    void doPin();
+    char* pinn;
 private:
-
+    engine* pengine;
 
 };
 
