@@ -3,7 +3,10 @@
 
 #include <QWidget>
 #include <QThread>
+#include <QDebug>
+#include <iostream>
 #include "enumi.h"
+#include "interface_rst.h"
 
 namespace Ui {
 class pin;
@@ -14,7 +17,8 @@ class pin : public QWidget
     Q_OBJECT
 
 public:
-    explicit pin(QWidget *parent = nullptr, QString* erri = nullptr, int* state = nullptr, QApplication* ohjelma = nullptr, char* pn = nullptr);
+    explicit pin(QWidget *parent = nullptr, QString* erri = nullptr, int* state = nullptr, QApplication* ohjelma = nullptr, char* pn = nullptr, int krtid = 0);
+    //parental advisory
     ~pin();
     void doPin();
 
@@ -34,6 +38,8 @@ private slots:
     void on_eightButton_clicked();
     void on_nineButton_clicked();
 
+    void gotKortti();
+
 private:
     bool testPin();
     void pinNumAdd(int);
@@ -41,11 +47,14 @@ private:
     void modPinDisp();
 
     char* lpinNums;
+    int lkrtid;
+    bool nwb = false;//block while doing network access
     int pinOffset = 0;
     Ui::pin *ui;
     QString* lerri;
     int* lstate;
     QApplication* lohjelma;
+    interface_rst* nwa;
 };
 
 #endif // PIN_H

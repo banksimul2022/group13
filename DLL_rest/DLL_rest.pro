@@ -1,4 +1,6 @@
 QT -= gui
+QT += network
+
 
 TEMPLATE = lib
 DEFINES += DLL_REST_LIBRARY
@@ -10,14 +12,18 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    dll_rest.cpp
+    engine_rst.cpp \
+    interface_rst.cpp
 
 HEADERS += \
     DLL_rest_global.h \
-    dll_rest.h
+    engine_rst.h \
+    interface_rst.h
 
 # Default rules for deployment.
 unix {
     target.path = /usr/lib
 }
 !isEmpty(target.path): INSTALLS += target
+
+FORMS +=

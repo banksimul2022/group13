@@ -1,9 +1,8 @@
 QT -= gui
-QT += serialport
-
+QT += widgets
 
 TEMPLATE = lib
-DEFINES += DLL_RFID_LIBRARY
+DEFINES += INTERFACE_LIBRARY
 
 CONFIG += c++11
 
@@ -12,13 +11,14 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    engine_rfd.cpp \
-    interface_rfd.cpp
+    engine.cpp \
+    interface.cpp
 
 HEADERS += \
-    DLL_RFID_global.h \
-    engine_rfd.h \
-    interface_rfd.h
+    engine.h \
+    enumi.h \
+    interface_global.h \
+    interface.h
 
 # Default rules for deployment.
 unix {
@@ -26,4 +26,5 @@ unix {
 }
 !isEmpty(target.path): INSTALLS += target
 
-FORMS +=
+FORMS += \
+    engine.ui
